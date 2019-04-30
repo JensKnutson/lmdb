@@ -5,7 +5,6 @@ import java.util.List;
 import com.lmdb.domain.Movie;
 
 public interface LmdbDataAccess {
-
 	
 	public List<Movie> getAllMovies();
 }
