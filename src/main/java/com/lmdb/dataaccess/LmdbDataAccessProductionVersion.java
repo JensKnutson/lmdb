@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.lmdb.domain.Movie;
-import com.lmdb.management.LmdbServiceLocal;
 
 @Stateless
 public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
@@ -31,11 +30,11 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 
 	public Movie deleteMovie(int id) {
 		System.out.println(id);
-//		Query query = em.createQuery("delete from Movie as ua where ua.id like ?1").setParameter(1, id);
+		Query query = em.createQuery("delete from Movie as ua where ua.id like ?1").setParameter(1, id);
 		Movie movie = (Movie) query.getSingleResult();
 		System.out.println(movie + " " + id);
-//		em.remove(query);
-		return movie;
+		em.remove(query);
+		return null;
 
 	}
 
