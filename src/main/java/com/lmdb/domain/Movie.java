@@ -1,5 +1,7 @@
 package com.lmdb.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Movies {
-	
+public class Movie implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
@@ -17,6 +19,8 @@ public class Movies {
 	@Column(length=40)
 	private String movieName;
 	
+	@Column(length=40)
+	private String format;
 	
 	public int getId() {
 		return id;
@@ -39,6 +43,17 @@ public class Movies {
 	}
 
 	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	
+	public Movie() {
+		
+	}
+	
+	public Movie(int id, int releaseYear, String movieName) {
+		super();
+		this.id = id;
+		this.releaseYear = releaseYear;
 		this.movieName = movieName;
 	}
 }
