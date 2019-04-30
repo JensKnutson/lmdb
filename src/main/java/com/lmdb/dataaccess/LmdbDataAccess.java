@@ -6,6 +6,8 @@ import com.lmdb.domain.Movie;
 
 public interface LmdbDataAccess {
 
-	List<Movie> getAllMovies();
-
+	
+	public List<Movie> getAllMovies();
 }
+
+
