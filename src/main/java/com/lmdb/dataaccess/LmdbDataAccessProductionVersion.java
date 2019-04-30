@@ -27,7 +27,14 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	@Override
 	public void registerMovie(Movie movie) {
 		em.persist(movie);
-		
+	}	
+
+	public Movie deleteMovie(int id) {
+		Query query = em.createQuery("from movie as ua where ua.id like ?1").setParameter(1, id);
+		Movie movie = (Movie) query.getSingleResult();
+		em.remove(movie);
+		return movie;
+
 	}
 
 }
