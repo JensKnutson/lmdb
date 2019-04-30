@@ -30,10 +30,11 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	}	
 
 	public Movie deleteMovie(int id) {
-		Query query = em.createQuery("from Movie as ua where ua.id like ?1").setParameter(1, id);
+		System.out.println(id);
+//		Query query = em.createQuery("delete from Movie as ua where ua.id like ?1").setParameter(1, id);
 		Movie movie = (Movie) query.getSingleResult();
 		System.out.println(movie + " " + id);
-		em.remove(query);
+//		em.remove(query);
 		return movie;
 
 	}
