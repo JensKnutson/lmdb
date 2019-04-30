@@ -25,6 +25,7 @@ public class MoviesResource {
 	@GET
 	@Produces("application/JSON")
 	public List<Movie> getAllMovies(){
+		System.out.println("Webservice called");
 		return lmdb.getAllMovies();
 	}
 	
