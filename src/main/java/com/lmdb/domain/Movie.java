@@ -16,10 +16,10 @@ public class Movie implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int releaseYear;
+	private int year;
 
 	@Column(length=40)
-	private String movieName;
+	private String title;
 	
 	@Column(length=40)
 	private String format;
@@ -32,20 +32,20 @@ public class Movie implements Serializable {
 		this.id = id;
 	}
 
-	public int getReleaseYear() {
-		return releaseYear;
+	public int getYear() {
+		return year;
 	}
 
-	public void setReleaseYear(int releaseYear) {
-		this.releaseYear = releaseYear;
+	public void setYear(int releaseYear) {
+		this.year = releaseYear;
 	}
 
-	public String getMovieName() {
-		return movieName;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
+	public void setTitle(String movieName) {
+		this.title = movieName;
 	}
 	
 	public Movie() {
@@ -55,7 +55,7 @@ public class Movie implements Serializable {
 	public Movie(int id, int releaseYear, String movieName) {
 		super();
 		this.id = id;
-		this.releaseYear = releaseYear;
-		this.movieName = movieName;
+		this.year = releaseYear;
+		this.title = movieName;
 	}
 }
