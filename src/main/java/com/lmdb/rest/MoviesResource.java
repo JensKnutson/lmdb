@@ -4,16 +4,16 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.servlet.annotation.WebServlet;
 import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import com.lmdb.domain.Movie;
 import com.lmdb.management.LmdbServiceLocal;
 
 @Stateless
-//@Path("/movies")
-@WebServlet("/movies")
+@Path("/movies")
+
 public class MoviesResource {
 	
 	@Inject
