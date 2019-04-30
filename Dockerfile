@@ -1,7 +1,7 @@
 FROM jboss/wildfly
 
-COPY ./postgresql-42.2.5.jar $JBOSS_HOME/modules/system/layers/base/org/postgresql/main/
-COPY ./module.xml $JBOSS_HOME/modules/system/layers/base/org/postgresql/main/
+COPY /postgresql-42.2.5.jar $JBOSS_HOME/modules/system/layers/base/org/postgresql/main/
+COPY /module.xml $JBOSS_HOME/modules/system/layers/base/org/postgresql/main/
 
 RUN sh -c "$JBOSS_HOME/bin/standalone.sh &" && \
     sleep 15 && \
@@ -11,4 +11,4 @@ RUN sh -c "$JBOSS_HOME/bin/standalone.sh &" && \
 
 RUN rm -R /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/current/*
 
-COPY ./lmdb.war $JBOSS_HOME/standalone/deployments/
+COPY /lmdb.war $JBOSS_HOME/standalone/deployments/
