@@ -19,6 +19,7 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	@Override
 	public List<Movie> getAllMovies() {
 		Query query = em.createQuery("from Movie");
+		System.out.println("Dataaccess called");
 		List<Movie> movie = query.getResultList();
 		return movie;
 	}
