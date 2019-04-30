@@ -11,7 +11,7 @@ import com.lmdb.domain.Movie;
 import com.lmdb.management.LmdbServiceLocal;
 
 @Stateless
-public class LmdbDataAccessProductionVersion implements LmdbServiceLocal {
+public class LmdbDataAccessProductionVersion implements LmdbServiceLocal, LmdbDataAccess {
 	
 	@PersistenceContext
 	private EntityManager em;
