@@ -13,7 +13,7 @@ import com.lmdb.management.LmdbServiceLocal;
 
 @Stateless
 //@Path("/movies")
-@WebServlet("movies")
+@WebServlet("/movies")
 public class MoviesResource {
 	
 	@Inject
