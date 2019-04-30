@@ -18,10 +18,10 @@ public class Movie implements Serializable {
 	private int id;
 	private int year;
 
-	@Column(length=40)
+	@Column(length=100)
 	private String title;
 	
-	@Column(length=40)
+	@Column(length=100)
 	private String format;
 	
 	public int getId() {
