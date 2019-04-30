@@ -31,8 +31,8 @@ public class MoviesResource {
 	
 	@DELETE
 	@Path("/delete/{id}")
-	public void removeMovie(@PathParam("id") int id, @Context HttpHeaders header) {
-		lmdb.deleteMovie();
+	public Movie removeMovie(@PathParam("id") int id, @Context HttpHeaders header) {
+		return lmdb.deleteMovie(id);
 	}
 
 }

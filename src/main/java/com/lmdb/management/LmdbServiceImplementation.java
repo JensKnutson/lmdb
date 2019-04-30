@@ -19,4 +19,10 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		return lda.getAllMovies();
 	}
 
+	@Override
+	public Movie deleteMovie(int ID) {
+		return lda.deleteMovie(ID);
+		
+	}
+
 }

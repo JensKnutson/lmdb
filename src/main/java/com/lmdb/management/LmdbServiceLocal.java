@@ -10,6 +10,6 @@ import com.lmdb.domain.Movie;
 public interface LmdbServiceLocal {
 
 	public List<Movie> getAllMovies();
-	public void deleteMovie();
+	public Movie deleteMovie(int id);
 
 }
