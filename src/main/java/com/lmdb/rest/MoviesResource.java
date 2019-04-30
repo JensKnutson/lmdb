@@ -44,6 +44,8 @@ public class MoviesResource {
 	@Consumes("application/JSON")
 	public Response registerMovie (Movie movie) {
 		
+		System.out.println(movie.getTitle());
+		
 		lmdb.registerMovie(movie);
 		
 		try {
