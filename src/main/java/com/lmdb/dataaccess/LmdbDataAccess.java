@@ -8,6 +8,8 @@ import com.lmdb.domain.Movie;
 public interface LmdbDataAccess {
 	
 	public List<Movie> getAllMovies();
+
+	public void registerMovie(Movie movie);
 }
 
 

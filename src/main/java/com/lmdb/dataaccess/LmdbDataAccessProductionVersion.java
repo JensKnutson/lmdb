@@ -24,4 +24,10 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		return movie;
 	}
 
+	@Override
+	public void registerMovie(Movie movie) {
+		em.persist(movie);
+		
+	}
+
 }

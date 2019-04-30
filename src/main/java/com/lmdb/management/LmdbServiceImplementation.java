@@ -19,5 +19,12 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		return lda.getAllMovies();
 	}
 
+	@Override
+	public void registerMovie(Movie movie) {
+		lda.registerMovie(movie);
+		
+	}
+
+
 }
 	
