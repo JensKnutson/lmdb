@@ -1,0 +1,6 @@
+com/lmdb/management/LmdbServiceImplementation.class
+com/lmdb/management/LmdbServiceLocal.class
+com/lmdb/rest/MoviesResource.class
+com/lmdb/dataaccess/LmdbDataAccess.class
+com/lmdb/domain/Movie.class
+com/lmdb/dataaccess/LmdbDataAccessProductionVersion.class
