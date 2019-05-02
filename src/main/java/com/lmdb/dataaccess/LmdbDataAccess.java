@@ -13,6 +13,8 @@ public interface LmdbDataAccess {
 	public void registerMovie(Movie movie);
 
 	public Movie deleteMovie(int id);
+	
+	public void changeMovie(int id, String title, int year, String format);
 
 }
 
