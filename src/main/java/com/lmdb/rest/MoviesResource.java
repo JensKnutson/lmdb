@@ -56,9 +56,8 @@ public class MoviesResource {
 	@PUT
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Response updateMovieTitle (int id, String title) {
+	public Response updateMovieTitle (@PathParam("id ")int id, String title) {
 //		TODO: JC change to update (merge)
-//		System.out.println(movie.getTitle());
 		
 		
 		try {
