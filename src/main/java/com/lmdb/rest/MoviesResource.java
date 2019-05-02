@@ -62,7 +62,9 @@ public class MoviesResource {
 		
 		
 		try {
+			System.out.println("rest update called");
 			lmdb.updateTitle(id, title);
+			
 			return Response.status(201).build();
 			} catch (ServiceUnavailableException e ) {
 			return Response.status(504).build();
