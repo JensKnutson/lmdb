@@ -41,17 +41,14 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 
 	}
 
+
+
 	@Override
-	public void changeMovie(int id, String title, int year, String format) {
-		Query query = em.createQuery("update movie set title=:title, year=:year, format=:format where id =:id");
-		query.setParameter("title", title);
-		query.setParameter("year", year);
-		query.setParameter("format", format);
-		query.setParameter("id", id);
+	public void changeTitle(int id, String title) {
+
+		Movie movie = em.find(Movie.class, id);
+		movie.setTitle(title);
 		
-		Movie movie = (Movie) query.getSingleResult();
-		
-		System.out.println(movie);	
 		
 		
 	}

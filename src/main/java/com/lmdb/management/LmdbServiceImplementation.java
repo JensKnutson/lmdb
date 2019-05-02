@@ -32,4 +32,10 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		
 	}
 
+	@Override
+	public void updateTitle(int id, String title) {
+		lda.changeTitle(id, title);
+		
+	}
+
 }

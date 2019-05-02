@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -52,8 +53,23 @@ public class MoviesResource {
 	};
 	
 	
+	@PUT
+	@Produces("application/JSON")
+	@Consumes("application/JSON")
+	public Response updateMovieTitle (int id, String title) {
+//		TODO: JC change to update (merge)
+//		System.out.println(movie.getTitle());
+		
+		
+		try {
+			lmdb.updateTitle(id, title);
+			return Response.status(201).build();
+			} catch (ServiceUnavailableException e ) {
+			return Response.status(504).build();
+		}
+		
+	};
 	
-
 	@DELETE
 	@Produces("application/JSON")
 	@Path("/delete/{id}")

@@ -14,7 +14,7 @@ public interface LmdbDataAccess {
 
 	public Movie deleteMovie(int id);
 	
-	public void changeMovie(int id, String title, int year, String format);
+	public void changeTitle(int id, String title);
 
 }
 
