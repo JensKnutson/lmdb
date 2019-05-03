@@ -37,4 +37,20 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		return movie;
 	}
 
+
+
+	@Override
+	public void changeTitle(int id, String title) {
+
+		
+		Movie movie = em.find(Movie.class, id);
+		
+		em.getTransaction().begin();
+		movie.setTitle(title);
+		em.getTransaction().commit();
+		
+		
+		
+	}
+
 }
