@@ -3,6 +3,7 @@ package com.lmdb.dataaccess;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -29,16 +30,11 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	}	
 
 	public Movie deleteMovie(int id) {
-		System.out.println(id);
-		Query query = em.createQuery("from Movie from Movie movie where movie.id= :id");
-		query.setParameter("id", id);	
-
+		Query query = em.createQuery("select movie from Movie movie where movie.id= :id");
+		query.setParameter("id", id);
 		Movie movie = (Movie) query.getSingleResult();
-		
-		System.out.println(movie + " " + id);
-//		em.remove(query);
-		return null;
-
+		em.remove(em.find(Movie.class, movie.getId()));
+		return movie;
 	}
 
 }
