@@ -12,7 +12,7 @@ public interface LmdbServiceLocal {
 	public List<Movie> getAllMovies();
 	public void registerMovie(Movie movie);
 	public Movie deleteMovie(int id);
-	public void updateTitle(int id, String title);
+	public void updateTitle(int id, Movie movie);
 	
 
 }

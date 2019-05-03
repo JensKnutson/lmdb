@@ -57,11 +57,11 @@ public class MoviesResource {
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
 	@Path("/update/{id}")
-	public Response updateMovieTitle (@PathParam("id") int id, @Context HttpHeaders header, String title ) {
+	public Response updateMovieTitle (@PathParam("id") int id, @Context HttpHeaders header, Movie movie ) {
 		
 		try {
 			System.out.println("rest update called on " + id );
-			lmdb.updateTitle(id, title);
+			lmdb.updateTitle(id, movie);
 			
 			return Response.status(201).build();
 			} catch (ServiceUnavailableException e ) {
