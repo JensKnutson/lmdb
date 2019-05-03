@@ -56,10 +56,11 @@ public class MoviesResource {
 	@PUT
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Response updateMovieTitle (@PathParam("id ")int id, String title, @Context HttpHeaders header) {
+	@Path("/update/{id}")
+	public Response updateMovieTitle (@PathParam("id") int id, @Context HttpHeaders header, String title ) {
 		
 		try {
-			System.out.println("rest update called");
+			System.out.println("rest update called on " + id );
 			lmdb.updateTitle(id, title);
 			
 			return Response.status(201).build();
