@@ -47,10 +47,10 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 //		Query query = em.createQuery("select movie from Movie movie where movie.id=:id");
 //		query.setParameter("id", id);
 //		Movie present_movie = (Movie) query.getSingleResult();
-		
 		Movie themovie = em.find(Movie.class, id);
+		themovie.setTitle(movie.getTitle());
 
-		themovie = movie;
+//		themovie = movie;
 
 //		movie.setTitle(title);
 		
