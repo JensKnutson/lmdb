@@ -16,6 +16,9 @@ public interface LmdbDataAccess {
 	
 	public void changeTitle(int id, String title);
 
+
+	void changeTitle(int id, Movie movie);
+
 }
 
 

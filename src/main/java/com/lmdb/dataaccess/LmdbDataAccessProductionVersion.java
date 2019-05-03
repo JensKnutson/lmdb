@@ -40,15 +40,17 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 
 
 	@Override
-	public void changeTitle(int id, String title) {
+	public void changeTitle(int id, Movie movie) {
 
-		System.out.println("Received value = " + id);
+//		System.out.println("Received value = " + id);
 
-		Query query = em.createQuery("select movie from Movie movie where movie.id=:id");
-		query.setParameter("id", id);
-		Movie movie = (Movie) query.getSingleResult();
+//		Query query = em.createQuery("select movie from Movie movie where movie.id=:id");
+//		query.setParameter("id", id);
+//		Movie present_movie = (Movie) query.getSingleResult();
+		
+		movie.setId(id);
 
-		movie.setTitle(title);
+//		movie.setTitle(title);
 		
 //		em.getTransaction().begin();
 		em.merge(movie);
