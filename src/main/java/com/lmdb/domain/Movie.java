@@ -32,9 +32,8 @@ public class Movie implements Serializable {
 	
 	@JoinTable(name="Joined_Table", 
 			joinColumns=
-			@JoinColumn(name="MOVIE_ID", 
-			referencedColumnName="MOVIE_ID"), inverseJoinColumns=
-			@JoinColumn(name="MOVIE_ID",referencedColumnName="LOAN_ID"))
+			@JoinColumn(name="MOVIE_ID"), inverseJoinColumns=
+			@JoinColumn(name="LOAN_ID"))
 	@OneToOne(fetch=FetchType.LAZY, mappedBy = "movie")
 	private Loan loan;
 	
