@@ -56,11 +56,7 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 			themovie.setFormat(movie.getFormat());
 		}
 		
-		
 
-
-		
-		
 	}
 
 }
