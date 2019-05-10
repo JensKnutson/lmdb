@@ -14,7 +14,7 @@ public class Loan implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	int id;
 	private int loan_ID;
 	private int movie_ID;
 	
