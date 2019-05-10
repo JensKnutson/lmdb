@@ -18,12 +18,8 @@ public class Loan implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="LOAN_ID")
 	int id;
-	
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="MOVIE_ID")
-	private Movie movie;
-	
+
+	private Movie movie;	
 	
 	public int getId() {
 		return id;

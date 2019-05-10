@@ -1,17 +1,17 @@
 package com.lmdb.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -30,12 +30,11 @@ public class Movie implements Serializable {
 	@Column(length=100)
 	private String format;
 	
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="Joined_Table", 
-			joinColumns=
-			@JoinColumn(name="MOVIE_ID"), inverseJoinColumns=
-			@JoinColumn(name="LOAN_ID"))
-	@OneToOne(fetch=FetchType.LAZY, mappedBy = "movie")
-	private Loan loan;
+			joinColumns=@JoinColumn(name="MOVIE_ID"), 
+			inverseJoinColumns=@JoinColumn(name="LOAN_ID"))
+	private List<Loan> loan;
 	
 	public int getId() {
 		return id;

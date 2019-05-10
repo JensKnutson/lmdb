@@ -1,7 +1,7 @@
 create table if not exists movie
 (id integer, Title text, year integer, format text);
 insert into movie
-(id, title, year, format)
+(movie_id, title, year, format)
 values 
 (1, 'Johan Falk - Gruppen för särskilda insatser ', 2009, null),
 (2, 'Johan Falk: Kodnamn: Lisa ', 2012, null),
@@ -20,4 +20,3 @@ values
 (15, 'Johan Falk: De 107 patrioterna ', 2012, 'Video'),
 (16, 'Johan Falk: Ur askan i elden ', 2015, 'Video'),
 (17, 'Johan Falk: Alla råns moder ', 2012, 'Video');
-
