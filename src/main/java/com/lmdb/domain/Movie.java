@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -30,11 +31,9 @@ public class Movie implements Serializable {
 	@Column(length=100)
 	private String format;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name="Joined_Table", 
-			joinColumns=@JoinColumn(name="MOVIE_ID"), 
-			inverseJoinColumns=@JoinColumn(name="LOAN_ID"))
-	private List<Loan> loan;
+	@OneToOne
+	@JoinColumn(name="loan_id")
+	private Loan loan;
 	
 	public int getId() {
 		return id;
