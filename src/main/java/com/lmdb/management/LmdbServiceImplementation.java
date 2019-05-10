@@ -33,8 +33,8 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 	}
 
 	@Override
-	public void updateTitle(int id, String title) {
-		lda.changeTitle(id, title);
+	public void updateTitle(int id, Movie movie) {
+		lda.changeTitle(id, movie);
 		
 	}
 

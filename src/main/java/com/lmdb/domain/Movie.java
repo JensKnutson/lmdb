@@ -48,6 +48,14 @@ public class Movie implements Serializable {
 		this.title = movieName;
 	}
 	
+	public void setFormat(String format) {
+		this.format = format;
+	}
+	
+	public String getFormat() {
+		return format;
+	}
+	
 	public Movie() {
 		
 	}

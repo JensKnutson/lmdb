@@ -56,13 +56,12 @@ public class MoviesResource {
 	@PUT
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Response updateMovieTitle (@PathParam("id ")int id, String title) {
-//		TODO: JC change to update (merge)
-		
+	@Path("/update/{id}")
+	public Response updateMovieTitle (@PathParam("id") int id, @Context HttpHeaders header, Movie movie ) {
 		
 		try {
-			System.out.println("rest update called");
-			lmdb.updateTitle(id, title);
+			System.out.println("rest update called on " + id );
+			lmdb.updateTitle(id, movie);
 			
 			return Response.status(201).build();
 			} catch (ServiceUnavailableException e ) {
