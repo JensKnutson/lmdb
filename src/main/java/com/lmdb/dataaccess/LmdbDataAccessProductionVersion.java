@@ -1,5 +1,6 @@
 package com.lmdb.dataaccess;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -11,7 +12,7 @@ import com.lmdb.domain.Movie;
 
 @Stateless
 public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -26,7 +27,7 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	@Override
 	public void registerMovie(Movie movie) {
 		em.persist(movie);
-	}	
+	}
 
 	public Movie deleteMovie(int id) {
 		Query query = em.createQuery("select movie from Movie movie where movie.id= :id");
@@ -35,39 +36,36 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		em.remove(em.find(Movie.class, movie.getId()));
 		return movie;
 	}
-	
+
 	public void getJoinTable() {
-		Query query = em.createNativeQuery("SHOW COLUMNS from JOIN_TABLE");
+		Query query = em.createNativeQuery("from JOIN_TABLE");
 		List list = query.getResultList();
-		for(Object o:list) {
-			System.out.println(o);
-		}
+	      for (Object o : list) {
+	          if(o instanceof Object[]) {
+	              System.out.println(Arrays.toString((Object[]) o));
+	          }else{
+	              System.out.println(o);
+	          }
+	      }
 	}
-
-
 
 	@Override
 	public void changeTitle(int id, Movie movie) {
 
 		Movie themovie = em.find(Movie.class, id);
-		
-		if(movie.getTitle() != null ) {
-			themovie.setTitle(movie.getTitle());			
+
+		if (movie.getTitle() != null) {
+			themovie.setTitle(movie.getTitle());
 		}
-		
-		if(movie.getYear() != 0) {
+
+		if (movie.getYear() != 0) {
 			themovie.setYear(movie.getYear());
 		}
-		
-		if(movie.getFormat() != null ) {
+
+		if (movie.getFormat() != null) {
 			themovie.setFormat(movie.getFormat());
 		}
-		
-		
 
-
-		
-		
 	}
 
 }
