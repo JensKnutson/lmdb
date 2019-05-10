@@ -17,8 +17,8 @@ public class Loan implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@OneToOne
 	@JoinTable(name = "JOIN_TABLE", joinColumns = {
-			@JoinColumn(name = "ENTITYMOVIE_FK", referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "ENTITYLOAN_FK", referencedColumnName = "id") })
+			@JoinColumn(name = "id", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "loan_id", referencedColumnName = "id") })
 	private Movie movie;
 	private int id;
 	private int loan_ID;
