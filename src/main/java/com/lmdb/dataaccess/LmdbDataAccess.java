@@ -15,6 +15,8 @@ public interface LmdbDataAccess {
 	public Movie deleteMovie(int id);
 
 	public void changeTitle(int id, Movie movie);
+	
+	public void getJoinTable();
 
 }
 

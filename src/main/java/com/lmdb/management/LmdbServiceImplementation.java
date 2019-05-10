@@ -38,4 +38,10 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		
 	}
 
+	@Override
+	public void getJoinTable() {
+		lda.getJoinTable();
+		
+	}
+
 }

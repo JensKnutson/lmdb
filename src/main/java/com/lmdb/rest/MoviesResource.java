@@ -33,6 +33,14 @@ public class MoviesResource {
 		System.out.println("Webservice called");
 		return lmdb.getAllMovies();
 	}
+	
+	@GET
+	@Produces("application/JSON")
+	@Path("/join")
+	public void getJoinTable() {
+		lmdb.getJoinTable();
+		
+	}
 
 	@POST
 	@Produces("application/JSON")

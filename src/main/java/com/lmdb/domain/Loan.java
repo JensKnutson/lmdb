@@ -6,12 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Loan  implements Serializable{
-	
+public class Loan implements Serializable {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@OneToOne
+	@JoinTable(name = "JOIN_TABLE", joinColumns = {
+			@JoinColumn(name = "ENTITYMOVIE_FK", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "ENTITYLOAN_FK", referencedColumnName = "id") })
+	private Movie movie;
 	private int id;
 	private int loan_ID;
 	private int movie_ID;
