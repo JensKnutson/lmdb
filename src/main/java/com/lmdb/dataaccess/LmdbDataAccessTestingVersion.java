@@ -14,12 +14,13 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 
 	@Override
 	public List<Movie> getAllMovies() {
+		System.out.println("Test called");
 		List<Movie> movieList = new ArrayList<>();
 		movieList.add(new Movie(1, 1999, "This is not real"));
 		movieList.add(new Movie(2, 1998, "This is a reel"));
 		movieList.add(new Movie(3, 1997, "The real Real Madrid?"));
 		
-		return null;
+		return movieList;
 	}
 
 	@Override
@@ -36,5 +37,8 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 	public void changeTitle(int id, Movie movie) {
 
 	}
+
+	@Override 
+	public void getJoinTable() {}
 
 }
