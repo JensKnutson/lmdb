@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -23,6 +24,9 @@ public class Movie implements Serializable {
 	
 	@Column(length=100)
 	private String format;
+	
+	@OneToOne(mappedBy = "movie")
+	private Loan loan;
 	
 	public int getId() {
 		return id;

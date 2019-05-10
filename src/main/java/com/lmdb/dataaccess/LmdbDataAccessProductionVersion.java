@@ -3,7 +3,6 @@ package com.lmdb.dataaccess;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -35,6 +34,14 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		Movie movie = (Movie) query.getSingleResult();
 		em.remove(em.find(Movie.class, movie.getId()));
 		return movie;
+	}
+	
+	public void getJoinTable() {
+		Query query = em.createNativeQuery("SHOW COLUMNS from JOIN_TABLE");
+		List list = query.getResultList();
+		for(Object o:list) {
+			System.out.println(o);
+		}
 	}
 
 

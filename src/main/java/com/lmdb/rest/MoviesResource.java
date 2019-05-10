@@ -33,6 +33,14 @@ public class MoviesResource {
 		System.out.println("Webservice called");
 		return lmdb.getAllMovies();
 	}
+	
+	@GET
+	@Produces("application/JSON")
+	@Path("/join")
+	public void getJoinTable() {
+		lmdb.getJoinTable();
+		
+	}
 
 	@POST
 	@Produces("application/JSON")
@@ -73,8 +81,15 @@ public class MoviesResource {
 	@DELETE
 	@Produces("application/JSON")
 	@Path("/delete/{id}")
-	public Movie removeMovie(@PathParam("id") int id, @Context HttpHeaders header) {
-		return lmdb.deleteMovie(id);
+	public Response removeMovie(@PathParam("id") int id, @Context HttpHeaders header) {
+		try {
+			lmdb.deleteMovie(id);
+			return Response.status(201).build();
+		}
+		catch(ServiceUnavailableException e) {
+			return Response.status(504).build();
+		}
+		
 	}
 
 

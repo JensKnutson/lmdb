@@ -27,14 +27,20 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 
 
 
-	public Movie deleteMovie(int ID) {
-		return lda.deleteMovie(ID);
+	public void deleteMovie(int ID) {
+		lda.deleteMovie(ID);
 		
 	}
 
 	@Override
 	public void updateTitle(int id, Movie movie) {
 		lda.changeTitle(id, movie);
+		
+	}
+
+	@Override
+	public void getJoinTable() {
+		lda.getJoinTable();
 		
 	}
 

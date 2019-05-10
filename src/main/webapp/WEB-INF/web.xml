@@ -6,7 +6,7 @@
             
  <servlet-mapping>
  	<servlet-name>javax.ws.rs.core.Application</servlet-name>
- 	<url-pattern>lmdb/*</url-pattern>
+ 	<url-pattern>/*</url-pattern>
  </servlet-mapping>
                
 </web-app>
