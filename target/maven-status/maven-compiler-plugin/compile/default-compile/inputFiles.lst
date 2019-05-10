@@ -1,6 +1,7 @@
-/home/vagrant/lmdb/src/main/java/com/lmdb/management/LmdbServiceImplementation.java
-/home/vagrant/lmdb/src/main/java/com/lmdb/domain/Movie.java
-/home/vagrant/lmdb/src/main/java/com/lmdb/dataaccess/LmdbDataAccess.java
-/home/vagrant/lmdb/src/main/java/com/lmdb/management/LmdbServiceLocal.java
-/home/vagrant/lmdb/src/main/java/com/lmdb/rest/MoviesResource.java
-/home/vagrant/lmdb/src/main/java/com/lmdb/dataaccess/LmdbDataAccessProductionVersion.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\dataaccess\LmdbDataAccessProductionVersion.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\domain\Movie.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\dataaccess\LmdbDataAccess.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\domain\Loan.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\management\LmdbServiceLocal.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\rest\MoviesResource.java
+C:\Users\Knuts\ServerProg\src\main\java\com\lmdb\management\LmdbServiceImplementation.java

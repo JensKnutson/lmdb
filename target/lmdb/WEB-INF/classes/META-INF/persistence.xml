@@ -3,7 +3,7 @@
   <persistence-unit name="lmdb">
     <jta-data-source>java:/PostgresDS</jta-data-source>
     <properties>
-      <property name="javax.persistence.schema-generation.database.action" value="none" />
+      <property name="javax.persistence.schema-generation.database.action" value="create" />
     </properties>
   </persistence-unit>
 </persistence>
