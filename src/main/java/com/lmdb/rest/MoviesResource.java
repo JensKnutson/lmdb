@@ -17,6 +17,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 
+import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
 import com.lmdb.management.LmdbServiceLocal;
 
@@ -91,6 +92,24 @@ public class MoviesResource {
 		}
 		
 	}
+	
+	@POST
+	@Produces("application/JSON")
+	@Consumes("application/JSON")
+	@Path("/lender")
+	public Response registerLender (Lender lender) {
+		
+//		System.out.println(movie.getTitle());
+		
+		
+		try {
+			lmdb.registerLender(lender);
+			return Response.status(201).build();
+			} catch (ServiceUnavailableException e ) {
+			return Response.status(504).build();
+		}
+		
+	};
 
 
 }

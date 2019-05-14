@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.lmdb.dataaccess.LmdbDataAccess;
+import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
 
 @Stateless
@@ -35,6 +36,12 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 	@Override
 	public void updateTitle(int id, Movie movie) {
 		lda.changeTitle(id, movie);
+		
+	}
+
+	@Override
+	public void registerLender(Lender lender) {
+		lda.registerLender(lender);
 		
 	}
 

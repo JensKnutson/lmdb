@@ -3,8 +3,8 @@ package com.lmdb.management;
 import java.util.List;
 
 import javax.ejb.Local;
-import javax.ws.rs.core.Response;
 
+import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
 
 @Local
@@ -15,6 +15,7 @@ public interface LmdbServiceLocal {
 	public void deleteMovie(int id);
 	public void updateTitle(int id, Movie movie);
 //	public void getJoinTable();
+	public void registerLender(Lender lender);
 	
 
 }
