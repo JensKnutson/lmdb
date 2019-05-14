@@ -75,4 +75,12 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		
 	}
 
+	@Override
+	public List<Lender> getAllLenders() {
+		Query query = em.createQuery("from Lender");
+		System.out.println("Dataaccess called");
+		List<Lender> lenders = query.getResultList();
+		return lenders;
+	}
+
 }

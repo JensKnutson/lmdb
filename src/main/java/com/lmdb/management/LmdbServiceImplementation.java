@@ -45,6 +45,11 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		
 	}
 
+	@Override
+	public List<Lender> getAllLenders() {
+		return lda.getAllLenders();
+	}
+
 //	@Override
 //	public void getJoinTable() {
 //		lda.getJoinTable();

@@ -110,6 +110,14 @@ public class MoviesResource {
 		}
 		
 	};
+	
+	@GET
+	@Produces("application/JSON")
+	@Path("/lender")
+	public List<Lender> getAllLenders(){
+		System.out.println("Webservice called");
+		return lmdb.getAllLenders();
+	}
 
 
 }

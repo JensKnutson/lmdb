@@ -44,6 +44,13 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 		
 	}
 
+	@Override
+	public List<Lender> getAllLenders() {
+		List<Lender> lenders = new ArrayList<>();
+		lenders.add(new Lender("Testis Testsson"));
+		return lenders;
+	}
+
 //	@Override 
 //	public void getJoinTable() {}
 

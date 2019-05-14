@@ -16,6 +16,7 @@ public interface LmdbServiceLocal {
 	public void updateTitle(int id, Movie movie);
 //	public void getJoinTable();
 	public void registerLender(Lender lender);
+	public List<Lender> getAllLenders();
 	
 
 }

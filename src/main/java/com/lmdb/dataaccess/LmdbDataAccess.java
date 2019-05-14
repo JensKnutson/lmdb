@@ -20,6 +20,8 @@ public interface LmdbDataAccess {
 //	public void getJoinTable();
 	
 	public void registerLender(Lender lender);
+	
+	public List<Lender> getAllLenders();
 
 }
 
