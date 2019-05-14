@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
 
 @Stateless
@@ -37,17 +38,17 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		return movie;
 	}
 
-	public void getJoinTable() {
-		Query query = em.createNativeQuery("from JOIN_TABLE");
-		List list = query.getResultList();
-	      for (Object o : list) {
-	          if(o instanceof Object[]) {
-	              System.out.println(Arrays.toString((Object[]) o));
-	          }else{
-	              System.out.println(o);
-	          }
-	      }
-	}
+//	public void getJoinTable() {
+//		Query query = em.createNativeQuery("from JOIN_TABLE");
+//		List list = query.getResultList();
+//	      for (Object o : list) {
+//	          if(o instanceof Object[]) {
+//	              System.out.println(Arrays.toString((Object[]) o));
+//	          }else{
+//	              System.out.println(o);
+//	          }
+//	      }
+//	}
 
 	@Override
 	public void changeTitle(int id, Movie movie) {
@@ -66,6 +67,12 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 			themovie.setFormat(movie.getFormat());
 		}
 
+	}
+
+	@Override
+	public void registerLender(Lender lender) {
+		em.persist(lender);
+		
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
+import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
 
 @Stateless
@@ -16,9 +17,9 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 	public List<Movie> getAllMovies() {
 		System.out.println("Test called");
 		List<Movie> movieList = new ArrayList<>();
-		movieList.add(new Movie(1, 1999, "This is not real"));
-		movieList.add(new Movie(2, 1998, "This is a reel"));
-		movieList.add(new Movie(3, 1997, "The real Real Madrid?"));
+		movieList.add(new Movie(1999, "This is not real"));
+		movieList.add(new Movie(1998, "This is a reel"));
+		movieList.add(new Movie(1997, "The real Real Madrid?"));
 		
 		return movieList;
 	}
@@ -30,7 +31,7 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 
 	@Override
 	public Movie deleteMovie(int id) {
-		return new Movie(1, 1997, "Honey...I deleted the kids!");
+		return new Movie(1997, "Honey...I deleted the kids!");
 	}
 
 	@Override
@@ -38,7 +39,12 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 
 	}
 
-	@Override 
-	public void getJoinTable() {}
+	@Override
+	public void registerLender(Lender lender) {
+		
+	}
+
+//	@Override 
+//	public void getJoinTable() {}
 
 }

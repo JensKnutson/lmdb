@@ -34,13 +34,13 @@ public class MoviesResource {
 		return lmdb.getAllMovies();
 	}
 	
-	@GET
-	@Produces("application/JSON")
-	@Path("/join")
-	public void getJoinTable() {
-		lmdb.getJoinTable();
-		
-	}
+//	@GET
+//	@Produces("application/JSON")
+//	@Path("/join")
+//	public void getJoinTable() {
+//		lmdb.getJoinTable();
+//		
+//	}
 
 	@POST
 	@Produces("application/JSON")

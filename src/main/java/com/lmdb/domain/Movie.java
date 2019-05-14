@@ -11,17 +11,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+
+
 
 @Entity
 @XmlRootElement
 public class Movie implements Serializable {
 
+	@OneToOne
+	@JoinColumn(name="film_id")
+	private Lender lender;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "MOVIE_ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private int year;
 
@@ -30,10 +35,6 @@ public class Movie implements Serializable {
 	
 	@Column(length=100)
 	private String format;
-	
-	@OneToOne
-	@JoinColumn(name="loan_id")
-	private Loan loan;
 	
 	public int getId() {
 		return id;
@@ -71,9 +72,9 @@ public class Movie implements Serializable {
 		
 	}
 	
-	public Movie(int id, int releaseYear, String movieName) {
+	public Movie( int releaseYear, String movieName) {
 		super();
-		this.id = id;
+//		this.id = id;
 		this.year = releaseYear;
 		this.title = movieName;
 	}

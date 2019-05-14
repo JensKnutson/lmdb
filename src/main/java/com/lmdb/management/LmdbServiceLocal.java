@@ -14,7 +14,7 @@ public interface LmdbServiceLocal {
 	public void registerMovie(Movie movie);
 	public void deleteMovie(int id);
 	public void updateTitle(int id, Movie movie);
-	public void getJoinTable();
+//	public void getJoinTable();
 	
 
 }

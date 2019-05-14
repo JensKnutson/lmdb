@@ -2,6 +2,7 @@ package com.lmdb.dataaccess;
 
 import java.util.List;
 
+import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
 
 
@@ -16,7 +17,9 @@ public interface LmdbDataAccess {
 
 	public void changeTitle(int id, Movie movie);
 	
-	public void getJoinTable();
+//	public void getJoinTable();
+	
+	public void registerLender(Lender lender);
 
 }
 
