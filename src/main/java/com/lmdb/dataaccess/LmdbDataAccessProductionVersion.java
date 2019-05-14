@@ -1,5 +1,6 @@
 package com.lmdb.dataaccess;
 
+import java.util.Iterator;
 import java.util.Arrays;
 import java.util.List;
 
@@ -80,7 +81,17 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		Query query = em.createQuery("from Lender");
 		System.out.println("Dataaccess called");
 		List<Lender> lenders = query.getResultList();
+		System.out.println("=======================================================");
+		System.out.println(lenders.size());
+
+		Iterator <Lender> it = lenders.iterator();
+		
+		while(it.hasNext()) {
+					System.out.println(it.next().getName());
+		}
+
 		return lenders;
 	}
 
 }
+

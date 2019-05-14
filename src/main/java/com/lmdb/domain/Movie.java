@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.FetchType.EAGER;
 
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -21,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Movie implements Serializable {
 
-	@OneToOne
+	@OneToOne(fetch=EAGER)
 	@JoinColumn(name="film_id")
 	private Lender lender;
 

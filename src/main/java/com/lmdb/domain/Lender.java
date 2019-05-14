@@ -13,12 +13,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
+import static javax.persistence.FetchType.EAGER;
+
 
 @Entity
 @XmlRootElement
 public class Lender implements Serializable {
 	
-	@OneToMany
+	@OneToMany(fetch=EAGER)
 	@JoinTable(name="loan", joinColumns=@JoinColumn(name = "lender_id"), 
 	inverseJoinColumns=@JoinColumn(name="film_id"))
 	private Set <Movie> movies = new HashSet<>();
