@@ -50,6 +50,12 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		return lda.getAllLenders();
 	}
 
+	@Override
+	public void registerLoan(int film_id, int lender_id) {
+		lda.registerLoan(film_id, lender_id);
+		
+	}
+
 //	@Override
 //	public void getJoinTable() {
 //		lda.getJoinTable();

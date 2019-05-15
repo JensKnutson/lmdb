@@ -119,6 +119,27 @@ public class MoviesResource {
 		System.out.println("Webservice called");
 		return lmdb.getAllLenders();
 	}
+	
+	
+	@POST
+	@Produces("application/JSON")
+	@Consumes("application/JSON")
+	@Path("/loan")
+	public Response registerLoan (int filmId, int lenderId) {
+		
+//		System.out.println(movie.getTitle());
+		
+		
+		try {
+			lmdb.registerLoan(filmId, lenderId);
+			return Response.status(201).build();
+			} catch (ServiceUnavailableException e ) {
+			return Response.status(504).build();
+		}
+		
+	}
+	
+	
 
 
 }

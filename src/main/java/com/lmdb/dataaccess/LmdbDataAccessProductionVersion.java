@@ -81,16 +81,28 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		Query query = em.createQuery("from Lender");
 		System.out.println("Dataaccess called");
 		List<Lender> lenders = query.getResultList();
-		System.out.println("=======================================================");
-		System.out.println(lenders.size());
-
-		Iterator <Lender> it = lenders.iterator();
-		
-		while(it.hasNext()) {
-					System.out.println(it.next().getName());
-		}
+//		System.out.println("=======================================================");
+//		System.out.println(lenders.size());
+//
+//		Iterator <Lender> it = lenders.iterator();
+//		
+//		while(it.hasNext()) {
+//					System.out.println(it.next().getName());
+//		}
 
 		return lenders;
+	}
+
+	@Override
+	public void registerLoan(int film_id, int lender_id) {
+		
+		Movie movie = em.find(Movie.class, film_id);
+		Lender lender = em.find(Lender.class, lender_id);
+		
+		lender.getMovies().add(movie);
+//		Osäker på om vi behöver använda persist här?
+		
+		
 	}
 
 }

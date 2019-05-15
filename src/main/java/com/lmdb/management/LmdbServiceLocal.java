@@ -17,6 +17,7 @@ public interface LmdbServiceLocal {
 //	public void getJoinTable();
 	public void registerLender(Lender lender);
 	public List<Lender> getAllLenders();
+	public void registerLoan(int film_id, int lender_id);
 	
 
 }

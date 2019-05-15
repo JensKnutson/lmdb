@@ -51,6 +51,11 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 		return lenders;
 	}
 
+	@Override
+	public void registerLoan(int film_id, int lender_id) {
+		
+	}
+
 //	@Override 
 //	public void getJoinTable() {}
 
