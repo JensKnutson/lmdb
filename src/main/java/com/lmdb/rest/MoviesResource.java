@@ -142,11 +142,12 @@ public class MoviesResource {
 	@POST
 	@Produces("application/JSON")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) // Content-Type: application/x-www-form-urlencoded
-	@Path("/deleteloan/{id}")
-	public Response deleteLoan (@PathParam("id") int filmId, @Context HttpHeaders header ) {
+	@Path("/deleteloan")
+	public Response deleteLoan (@FormParam(value = "filmId") int filmId,
+			@FormParam(value = "lenderId") int lenderId) {
 				
 		try {
-			lmdb.deleteLoan(filmId);
+			lmdb.deleteLoan(lenderId ,filmId);
 			return Response.status(201).build();
 			} catch (ServiceUnavailableException e ) {
 			return Response.status(504).build();

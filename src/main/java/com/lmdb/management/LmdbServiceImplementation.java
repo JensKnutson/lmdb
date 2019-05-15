@@ -57,8 +57,8 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 	}
 
 	@Override
-	public void deleteLoan(int filmId) {
-		lda.deleteLoan(filmId);
+	public void deleteLoan(int lenderId, int filmId) {
+		lda.deleteLoan(lenderId, filmId);
 	}
 
 //	@Override

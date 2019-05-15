@@ -25,8 +25,9 @@ public interface LmdbDataAccess {
 	
 	public void registerLoan(int film_id, int lender_id);
 
+	public void deleteLoan(int lenderId, int filmId);
 
-	public void deleteLoan(int filmId);
+
 
 }
 

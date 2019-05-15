@@ -105,13 +105,13 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	}
 
 	@Override
-	public void deleteLoan(int filmId) {
+	public void deleteLoan(int lenderid, int filmId) {
 
 		System.out.println("======================================="
 				+ "================================================"
 				+ "================================================");
 		
-		Lender lender = em.find(Lender.class, 7);
+		Lender lender = em.find(Lender.class, lenderid);
 		Movie movie = em.find(Movie.class, filmId);
 		
 		lender.getMovies().remove(movie);

@@ -18,7 +18,7 @@ public interface LmdbServiceLocal {
 	public void registerLender(Lender lender);
 	public List<Lender> getAllLenders();
 	public void registerLoan(int film_id, int lender_id);
-	public void deleteLoan(int filmId);
+	public void deleteLoan(int lenderId, int filmId);
 	
 
 }
