@@ -100,7 +100,17 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		Lender lender = em.find(Lender.class, lender_id);
 		
 		lender.getMovies().add(movie);
-//		Osäker på om vi behöver använda persist här?
+
+		
+		
+	}
+
+	@Override
+	public void deleteLoan(int filmId) {
+
+		Query query = em.createQuery("delete from loan where film_id = :id");
+		query.setParameter("id", filmId);
+		query.executeUpdate();
 		
 		
 	}

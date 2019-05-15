@@ -56,6 +56,11 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 		
 	}
 
+	@Override
+	public void deleteLoan(int filmId) {
+		
+	}
+
 //	@Override 
 //	public void getJoinTable() {}
 

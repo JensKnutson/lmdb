@@ -56,6 +56,11 @@ public class LmdbServiceImplementation implements LmdbServiceLocal {
 		
 	}
 
+	@Override
+	public void deleteLoan(int filmId) {
+		lda.deleteLoan(filmId);
+	}
+
 //	@Override
 //	public void getJoinTable() {
 //		lda.getJoinTable();

@@ -126,23 +126,31 @@ public class MoviesResource {
 	
 	@POST
 	@Produces("application/JSON")
-//	@Consumes("application/JSON")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) // Content-Type: application/x-www-form-urlencoded
-	
 	@Path("/loan")
 	public Response registerLoan (@FormParam(value = "filmId") int filmId,
 			@FormParam(value = "lenderId") int lenderId) {
-		
-//		System.out.println(movie.getTitle());
-		
-		
+				
 		try {
 			lmdb.registerLoan(filmId, lenderId);
 			return Response.status(201).build();
 			} catch (ServiceUnavailableException e ) {
 			return Response.status(504).build();
 		}
-		
+	}
+	
+	@POST
+	@Produces("application/JSON")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) // Content-Type: application/x-www-form-urlencoded
+	@Path("/deleteloan/{id}")
+	public Response deleteLoan (@PathParam("id") int filmId, @Context HttpHeaders header ) {
+				
+		try {
+			lmdb.deleteLoan(filmId);
+			return Response.status(201).build();
+			} catch (ServiceUnavailableException e ) {
+			return Response.status(504).build();
+		}
 	}
 	
 	
