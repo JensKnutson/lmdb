@@ -6,15 +6,18 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.ServiceUnavailableException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.lmdb.domain.Lender;
@@ -123,9 +126,12 @@ public class MoviesResource {
 	
 	@POST
 	@Produces("application/JSON")
-	@Consumes("application/JSON")
+//	@Consumes("application/JSON")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) // Content-Type: application/x-www-form-urlencoded
+	
 	@Path("/loan")
-	public Response registerLoan (int filmId, int lenderId) {
+	public Response registerLoan (@FormParam(value = "filmId") int filmId,
+			@FormParam(value = "lenderId") int lenderId) {
 		
 //		System.out.println(movie.getTitle());
 		
