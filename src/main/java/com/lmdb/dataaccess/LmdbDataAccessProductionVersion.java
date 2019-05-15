@@ -1,7 +1,6 @@
 package com.lmdb.dataaccess;
 
-import java.util.Iterator;
-import java.util.Arrays;
+import java.sql.ResultSet;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -108,10 +107,15 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	@Override
 	public void deleteLoan(int filmId) {
 
-		Query query = em.createQuery("delete from loan where film_id = :id");
-		query.setParameter("id", filmId);
-		query.executeUpdate();
+		System.out.println("======================================="
+				+ "================================================"
+				+ "================================================");
 		
+		Lender lender = em.find(Lender.class, 7);
+		Movie movie = em.find(Movie.class, filmId);
+		
+		lender.getMovies().remove(movie);
+
 		
 	}
 
