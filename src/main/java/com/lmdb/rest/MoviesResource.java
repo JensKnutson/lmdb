@@ -155,6 +155,12 @@ public class MoviesResource {
 	}
 	
 	
-
+	@GET
+	@Produces("application/JSON")
+	@Path("allloans")
+	public List<String> getAllLoans(){
+		System.out.println("Webservice called");
+		return lmdb.getAllLoans();
+	}
 
 }

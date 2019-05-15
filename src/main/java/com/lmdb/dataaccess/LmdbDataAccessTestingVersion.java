@@ -61,6 +61,12 @@ public class LmdbDataAccessTestingVersion implements LmdbDataAccess {
 		
 	}
 
+	@Override
+	public List<String> getAllLoans() {
+		
+		return null;
+	}
+
 
 
 //	@Override 

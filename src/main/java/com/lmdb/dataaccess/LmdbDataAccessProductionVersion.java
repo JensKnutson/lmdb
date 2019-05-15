@@ -1,12 +1,13 @@
 package com.lmdb.dataaccess;
 
-import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.Tuple;
 
 import com.lmdb.domain.Lender;
 import com.lmdb.domain.Movie;
@@ -80,14 +81,7 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 		Query query = em.createQuery("from Lender");
 		System.out.println("Dataaccess called");
 		List<Lender> lenders = query.getResultList();
-//		System.out.println("=======================================================");
-//		System.out.println(lenders.size());
-//
-//		Iterator <Lender> it = lenders.iterator();
-//		
-//		while(it.hasNext()) {
-//					System.out.println(it.next().getName());
-//		}
+
 
 		return lenders;
 	}
@@ -107,16 +101,22 @@ public class LmdbDataAccessProductionVersion implements LmdbDataAccess {
 	@Override
 	public void deleteLoan(int lenderid, int filmId) {
 
-		System.out.println("======================================="
-				+ "================================================"
-				+ "================================================");
-		
 		Lender lender = em.find(Lender.class, lenderid);
 		Movie movie = em.find(Movie.class, filmId);
 		
-		lender.getMovies().remove(movie);
-
+		lender.getMovies().remove(movie);		
+	}
+	
+	@Override
+	public List<String> getAllLoans() {
+		Query query = em.createQuery("select l from loan l");
+		List<Tuple> results = query.getResultList();
+		List<String> loans = new ArrayList<>();
 		
+		for (Tuple tuple : results ) {
+			loans.add(tuple.toString());
+		}
+		return loans;
 	}
 
 }
